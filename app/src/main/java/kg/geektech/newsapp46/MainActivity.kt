@@ -33,9 +33,9 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-    }
 
-    companion object {
-        val IMAGE_REQUEST_CODE = 100
+        navController.navigate(R.id.navigation_board)
     }
 }
+
+// android:paddingTop="?attr/actionBarSize"  убрала из activity_main на всякий случай

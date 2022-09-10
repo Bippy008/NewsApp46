@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import kg.geektech.newsapp46.databinding.FragmentDashboardBinding
 import kg.geektech.newsapp46.databinding.FragmentSecondBinding
+import kg.geektech.newsapp46.models.News
 import kg.geektech.newsapp46.ui.dashboard.DashboardViewModel
 
 
@@ -34,15 +35,16 @@ class SecondFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btnSave.setOnClickListener {
             navigateWithBundle()
-            findNavController().navigateUp()
         }
     }
 
     private fun navigateWithBundle() {
         val bundle = Bundle()
-        val text = binding.editText.text
-        bundle.putString("key", text.toString())
+        val text = binding.editText.text.toString()
+        val news = News(text, System.currentTimeMillis())
+        bundle.putSerializable("news", news)
         parentFragmentManager.setFragmentResult("key_bundle", bundle)
+        findNavController().navigateUp()
     }
 
     override fun onDestroyView() {

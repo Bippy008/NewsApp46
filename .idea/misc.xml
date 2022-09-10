@@ -3,11 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android exes/NewsApp462/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Android exes/NewsApp462/app/src/main/res/drawable/default_dot.xml" value="0.2745" />
+        <entry key="..\:/Android exes/NewsApp462/app/src/main/res/drawable/tab_selector.xml" value="0.2745" />
+        <entry key="..\:/Android exes/NewsApp462/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Android exes/NewsApp462/app/src/main/res/layout/fragment_board.xml" value="0.25" />
         <entry key="..\:/Android exes/NewsApp462/app/src/main/res/layout/fragment_dashboard.xml" value="0.2518518518518518" />
-        <entry key="..\:/Android exes/NewsApp462/app/src/main/res/layout/fragment_home.xml" value="0.22" />
+        <entry key="..\:/Android exes/NewsApp462/app/src/main/res/layout/fragment_home.xml" value="0.5" />
         <entry key="..\:/Android exes/NewsApp462/app/src/main/res/layout/fragment_profile.xml" value="0.18541666666666667" />
-        <entry key="..\:/Android exes/NewsApp462/app/src/main/res/layout/fragment_second.xml" value="0.28703703703703703" />
+        <entry key="..\:/Android exes/NewsApp462/app/src/main/res/layout/fragment_second.xml" value="0.22" />
+        <entry key="..\:/Android exes/NewsApp462/app/src/main/res/layout/news_item.xml" value="0.2712962962962963" />
+        <entry key="..\:/Android exes/NewsApp462/app/src/main/res/layout/pager_board.xml" value="0.33" />
         <entry key="..\:/Android exes/NewsApp462/app/src/main/res/menu/bottom_nav_menu.xml" value="0.18" />
       </map>
     </option>

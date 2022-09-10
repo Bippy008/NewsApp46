@@ -2,6 +2,7 @@ package kg.geektech.newsapp46.ui.home
 
 import android.os.Bundle
 import android.text.Editable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,14 +12,19 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import kg.geektech.newsapp46.R
 import kg.geektech.newsapp46.databinding.FragmentHomeBinding
+import kg.geektech.newsapp46.models.News
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
+
+    private lateinit var adapter: NewsAdapter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        adapter = NewsAdapter()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,9 +40,12 @@ class HomeFragment : Fragment() {
         navigate()
         parentFragmentManager.setFragmentResultListener("key_bundle",
             viewLifecycleOwner){requestkey, bundle ->
-            val text: String? = bundle.getString("key")
-            binding.editText1.setText(text)
+            val news = bundle.getSerializable("news") as News
+            adapter.addItem(news)
+            Log.e("Home", "text: $news")
         }
+        binding.recyclerView.adapter = adapter
+
     }
 
     private fun navigate() {

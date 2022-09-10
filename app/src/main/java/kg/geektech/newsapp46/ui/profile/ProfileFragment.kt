@@ -46,13 +46,6 @@ class ProfileFragment : Fragment() {
         launcher.launch(intentAvatar)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode == MainActivity.IMAGE_REQUEST_CODE) {
-            binding.profileImage.setImageURI(data?.data)
-        }
-    }
-
     private fun initLauncher() {
         launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if (it.resultCode == AppCompatActivity.RESULT_OK) {
