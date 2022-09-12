@@ -1,13 +1,16 @@
 package kg.geektech.newsapp46
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kg.geektech.newsapp46.databinding.PagerBoardBinding
+import kg.geektech.newsapp46.ui.Prefs
 
-class BoardAdapter : RecyclerView.Adapter<BoardAdapter.ViewHolder>() {
+class BoardAdapter(var context: Context, val findNavController: NavController) : RecyclerView.Adapter<BoardAdapter.ViewHolder>() {
 
     private val titles = arrayOf("Салам", "Привет", "Хелло")
     private val images = arrayOf("https://i.imgur.com/UyDIhV3.png",
@@ -17,6 +20,12 @@ class BoardAdapter : RecyclerView.Adapter<BoardAdapter.ViewHolder>() {
     inner class ViewHolder(private var binding: PagerBoardBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
+            binding.btnStart.setOnClickListener {
+                val prefs = Prefs(context)
+                prefs.saveState()
+                findNavController.navigateUp()
+            }
+
             binding.boardTitle.text = titles[position]
             Glide.with(binding.boardImage).load(images[position]).into(binding.boardImage)
             if (position == titles.size-1) {
